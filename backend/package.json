@@ -1,0 +1,11 @@
+{
+  "name": "auxiliatron-api",
+  "version": "1.0.0",
+  "description": "proyectos de ingenieria de software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "UPB",
+  "license": "MIT"
+}
