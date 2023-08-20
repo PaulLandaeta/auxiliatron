@@ -19,4 +19,4 @@ const getUser = async () => {
   }
 };
 
-module.exports = getUser;
+module.exports.getUser = getUser ;
