@@ -1,8 +1,16 @@
 const getUser = require("../repositories/userRepository");
+const logger = require('../utils/logger');
+
 const getUserService = async () => {
-  const users = await getUser();
-  
-  return users;
+  try {
+    logger.info("getUserService - Fetching users from the database"); 
+    const users = await getUser();
+    logger.info("getUserService - Users fetched successfully!");
+    return users;
+  } catch (error) {
+    logger.error("getUserService - Error fetching users: ", error); // Agregar log en caso de error
+    throw error;
+  }
 };
 
 module.exports = getUserService;
