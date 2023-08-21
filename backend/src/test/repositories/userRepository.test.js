@@ -1,16 +1,13 @@
 const chai = require("chai");
 const expect = chai.expect;
-const knex = require("knex");
-const pgConnection = require("../../config/knex-pg");
-const { getUser } = require("../../repositories/userRepository");
 
-const db = knex(pgConnection.development);
+const { getUser } = require("../../repositories/userRepository");
 
 describe("getUser Repository", () => {
 
   it("should fetch users from the database", async () => {
     const users = await getUser();
-    console.log(users);
+
     expect(users).to.be.an("array");
     expect(users).to.have.lengthOf.at.least(1);
 
