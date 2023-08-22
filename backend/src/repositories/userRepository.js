@@ -1,5 +1,6 @@
 const knex = require("knex");
 const pgConnection = require("../config/knex-pg");
+console.log(pgConnection);
 const db = knex(pgConnection.development);
 
 const getUser = async () => {
@@ -19,4 +20,4 @@ const getUser = async () => {
   }
 };
 
-module.exports = getUser;
+module.exports.getUser = getUser ;

@@ -1,5 +1,6 @@
 const getUserService = require('../services/userService');
 const logger = require('../utils/logger');
+
 const getUserController = async (req, res) => {
     logger.info('getUserController - Req', req);
     try {
