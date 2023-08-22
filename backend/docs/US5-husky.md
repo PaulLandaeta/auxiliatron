@@ -1,44 +1,68 @@
-# Tutorial: Configuración de Husky para Ejecutar Unit Tests
+# Tutorial: Configuración de Git Hooks para Ejecutar Unit Tests
 
-En este tutorial, aprenderás cómo configurar Husky para automatizar la ejecución de pruebas unitarias en tu proyecto. Husky es una herramienta que te permite configurar ganchos (hooks) predefinidos que se ejecutan automáticamente en ciertos eventos de Git. Utilizaremos Husky para ejecutar tus pruebas unitarias cada vez que intentes confirmar (commit) tus cambios en el repositorio.
+En este tutorial, aprenderás cómo configurar Git Hooks para automatizar la ejecución de pruebas unitarias en un proyecto backend, sin utilizar Husky. Los Git Hooks son scripts personalizados que se ejecutan automáticamente en respuesta a eventos de Git, como confirmaciones, fusiones y más.
 
-## Paso 1: Instalación de Husky
+## Paso 1: Preparación del Proyecto
 
-Lo primero que necesitas hacer es instalar Husky en tu proyecto. Puedes hacerlo a través de npm o yarn. Abre una terminal en la raíz de tu proyecto y ejecuta el siguiente comando:
+Asegúrate de tener instalado Git en tu sistema y que tu proyecto backend tenga una configuración adecuada para ejecutar las pruebas unitarias. Esto puede implicar tener las herramientas de prueba (por ejemplo, Jest, Mocha) configuradas y el comando para ejecutar las pruebas unitarias definido en tu `package.json`.
 
-```bash
-npm install husky --save-dev
-```
+## Paso 2: Configuración del Git Hook
 
-## Paso 2: Configuración de los Ganchos de Husky
+1. Abre una terminal en el directorio raíz de tu proyecto backend.
 
-Una vez que Husky está instalado, necesitas configurar los ganchos que se ejecutarán antes de ciertos eventos de Git. En este caso, vamos a configurar Husky para ejecutar las pruebas unitarias antes de cada confirmación. 
-
-1. Crea un archivo llamado `.huskyrc` en la raíz de tu proyecto. Este archivo contendrá la configuración de los ganchos de Husky.
-
-2. Abre `.huskyrc` en tu editor de texto y agrega lo siguiente:
-
-```json
-{
-  "hooks": {
-    "pre-commit": "npm test"
-  }
-}
-```
-
-En este ejemplo, estamos configurando el gancho `pre-commit` para que ejecute el comando `npm test` antes de cada confirmación.
-
-## Paso 3: Configuración de las Pruebas Unitarias
-
-Antes de continuar, asegúrate de tener configuradas tus pruebas unitarias en tu proyecto. Esto puede depender de las herramientas que estés utilizando, como Jest, Mocha, Jasmine, etc. Asegúrate de que el comando `npm test` esté configurado para ejecutar tus pruebas unitarias.
-
-## Paso 4: Realizar una Confirmación
-
-Con Husky configurado, ahora puedes probar si todo está funcionando correctamente. Realiza una confirmación en tu repositorio. Puedes hacerlo mediante la línea de comandos o a través de tu herramienta de control de versiones favorita.
+2. Accede al directorio `.git/hooks` en tu proyecto. Los hooks de Git se encuentran en este directorio.
 
 ```bash
-git commit -m "Agregando nuevas funcionalidades"
+cd .git/hooks
 ```
 
-Husky detectará la confirmación y automáticamente ejecutará las pruebas unitarias configuradas antes de completar la confirmación.
+3. Crea un nuevo archivo llamado `pre-commit` en este directorio. Esto configurará un Git Hook que se ejecutará antes de cada confirmación.
 
+```bash
+touch pre-commit
+```
+
+4. Abre el archivo `pre-commit` en tu editor de texto favorito.
+
+5. Agrega el siguiente contenido al archivo `pre-commit`:
+
+```bash
+#!/bin/bash
+
+npm test
+```
+
+Este script ejecutará el comando `npm test` antes de cada confirmación.
+
+6. Guarda el archivo y asegúrate de que tenga permisos de ejecución. Puedes otorgar permisos de ejecución utilizando el siguiente comando:
+
+```bash
+chmod +x pre-commit
+```
+
+## Paso 3: Verificación y Pruebas
+
+Ahora, verifica que la configuración del Git Hook esté funcionando correctamente:
+
+1. Realiza cambios en tu código en el proyecto backend.
+
+2. Intenta realizar una confirmación usando Git. Puedes hacerlo a través de la línea de comandos:
+
+```bash
+git add .
+git commit -m "Realizando cambios en el backend"
+```
+
+3. El Git Hook ejecutará automáticamente el comando `npm test`, que a su vez ejecutará tus pruebas unitarias. Si todo está configurado correctamente y las pruebas pasan, la confirmación se completará. Si las pruebas fallan, la confirmación será bloqueada.
+
+## Consejos Adicionales
+
+- Asegúrate de que el comando `npm test` en el script del Git Hook esté configurado para ejecutar las pruebas unitarias en el proyecto backend.
+
+- Si estás utilizando un entorno diferente o herramientas específicas para las pruebas unitarias, asegúrate de que el comando en el script sea adecuado para tu caso.
+
+- Si experimentas problemas, verifica los mensajes de error en la terminal y las salidas de las pruebas para identificar posibles problemas en la configuración.
+
+## Conclusión
+
+Has configurado exitosamente un Git Hook que automatiza la ejecución de pruebas unitarias en tu proyecto backend antes de cada confirmación. Esto te permitirá mantener la calidad del código y reducir la posibilidad de introducir errores en tu repositorio. ¡Ahora puedes desarrollar con más confianza y eficiencia!
