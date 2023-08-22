@@ -1,5 +1,5 @@
 {
   "hooks": {
-    "pre-commit": "cd ../backend && npm test"
+    "pre-commit": "cd ./backend && npm test"
   }
 }
