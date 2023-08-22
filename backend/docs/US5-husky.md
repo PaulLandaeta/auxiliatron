@@ -41,3 +41,4 @@ git commit -m "Agregando nuevas funcionalidades"
 ```
 
 Husky detectará la confirmación y automáticamente ejecutará las pruebas unitarias configuradas antes de completar la confirmación.
+
