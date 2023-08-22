@@ -9,7 +9,7 @@ En este tutorial, aprenderás cómo usar Swagger para documentar una API Node.js
 1. Instala las dependencias necesarias:
 
 ```bash
-npm install express swagger-jsdoc swagger-ui-express --save
+npm install swagger-jsdoc swagger-ui-express --save
 ```
 
 ## Paso 2: Configuración de Swagger

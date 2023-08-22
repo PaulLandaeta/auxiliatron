@@ -7,7 +7,7 @@
     "test": "mocha src/test/**/*.test.js --exit",
     "start": "nodemon index.js",
     "lint-fix": "eslint . --fix",
-    "migrate-create": "npx knex --knexfile ./src/config/knex-pg.js migrate:make"
+    "migrate-create": "knex --knexfile ./src/config/knex-pg.js migrate:make"
   },
   "author": "UPB",
   "license": "MIT",
