@@ -6,7 +6,7 @@ const checkAuth = (req, res, next) => {
     next();
   } else {
     // Si el valor es incorrecto, deniega el acceso
-    res.status(403).json({ message: "Acceso denegado." });
+    res.status(403).json({ message: "Acceso denegado Choquito!!!." });
   }
 };
 
