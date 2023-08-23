@@ -22,4 +22,4 @@ jobs:
         run: cd backend && npm install
 
       - name: Build and deploy to Vercel
-        run: cd backend npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod false --yes
+        run: cd backend && npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod false
