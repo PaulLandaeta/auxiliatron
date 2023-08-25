@@ -6,6 +6,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  Divider,
 } from '@mui/material';
 import { LocationOn, Schedule } from "@mui/icons-material";
 const styles = {
@@ -14,7 +15,7 @@ const styles = {
     borderRadius: '8px',
     padding: '16px',
     width: '900px', // Ajusta el ancho según tus necesidades
-    height: '150px', // Ajusta el alto según tus necesidades
+    height: '300px', // Ajusta el alto según tus necesidades
   },
   listItem: {
     paddingLeft: '0',
@@ -61,7 +62,7 @@ const SubjectCard = () => {
             </Grid>
   
             {/* Segunda fila */}
-            <Grid item xs={12}>
+            <Grid item xs={8}>
               {/* Lista de tareas */}
               <Typography variant="body2" color="textSecondary" style={{ marginTop: '16px' }}>
                 Tareas:
@@ -70,6 +71,7 @@ const SubjectCard = () => {
                 <ListItem style={styles.listItem}>
                   <ListItemText primary="Tarea 1" />
                 </ListItem>
+                <Divider/>
                 <ListItem style={styles.listItem}>
                   <ListItemText primary="Tarea 2" />
                 </ListItem>
@@ -77,6 +79,9 @@ const SubjectCard = () => {
                   <ListItemText primary="Tarea 3" />
                 </ListItem>
               </List>
+            </Grid>
+            <Grid item xs={4}>
+                
             </Grid>
           </Grid>
         </CardContent>
