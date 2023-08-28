@@ -2,10 +2,11 @@ import {useEffect, useState} from 'react';
 import "./App.css";
 import SubjectCard from "./components/SubjectCard";
 import { pokeAPI, internarAPI } from './services/apis';
-
+import {generateRandomNumbers}  from './helpers/random';
 function App() {
   const [pokemon, setPokemon] = useState(null);
   const [click, setClick ] = useState(false);
+  const get3RandomsNumbers = generateRandomNumbers();
   useEffect(() => {
     pokeAPI.get('/pokemon/charmander')
       .then(response => {
