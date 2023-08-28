@@ -4,7 +4,7 @@ const options = {
   swaggerDefinition: {
     openapi: '3.0.0',
     info: {
-      title: 'API Documentation',
+      title: 'Documentancion del API para AUXILIATRON',
       version: '1.0.0',
       description: 'Documentation for your API',
     },
