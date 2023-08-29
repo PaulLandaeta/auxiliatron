@@ -11,9 +11,9 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { getPokemonById } from '../services/pokemonService';
+import { getPokemonById, postPokemonsCaptured } from '../services/pokemonService';
 
-export default function PokeCard(props) {
+export default function PokeCard(props:any) {
   const {pokemonId} = props;
   const [pokemon, setPokemon] = useState<any>(null);
   console.log("🚀 ~ file: PokeCard.tsx:35 ~ PokeCard ~ pokemonId:", pokemonId)
@@ -27,6 +27,9 @@ export default function PokeCard(props) {
     getPokemon();
   }, []);
 
+  const capturar = async () => {
+    postPokemonsCaptured(pokemon)    
+  };
   return (
     <Card sx={{ maxWidth: 345 }}>
       {pokemon && <CardHeader
@@ -57,7 +60,7 @@ export default function PokeCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" onClick={capturar}>
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
