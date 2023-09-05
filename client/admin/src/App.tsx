@@ -1,9 +1,10 @@
 import "./App.css";
+import Component from "./components/TitleCard";
 import Pokedeck from './components/Pokedeck';
 function App() {
   return (
     <>
-      <Pokedeck/>
+      <Component name="Paul Landaeta"/>
     </>
   );
 }
