@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                cd pepito
                 echo 'Building..'
             }
         }
