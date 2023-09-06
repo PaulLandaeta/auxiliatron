@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                cd pepito
+                cd client
                 echo 'Building..'
             }
         }
