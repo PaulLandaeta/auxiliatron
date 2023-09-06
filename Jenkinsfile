@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                cd client
-                echo 'Building..'
+                sh 'ls'
             }
         }
         stage('Test') {
