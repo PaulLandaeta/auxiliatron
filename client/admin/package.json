@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "test": "jest",
+    "e2e": "jest",
     "start": "concurrently \"npm run dev\" \"npm run json-server\"",
     "build": "tsc && vite build",
     "json-server": "json-server --watch db.json --port 5000",
