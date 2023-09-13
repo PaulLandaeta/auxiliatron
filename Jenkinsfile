@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'cd client/admin && npm run build'
+                sh 'cd client/admin'
             }
         }
         stage('Test') {
