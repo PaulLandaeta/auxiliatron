@@ -6,8 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cd client/admin'
-                sh 'npm install'
+                sh 'cd client/admin && npm install'
             }
         }
         stage('Test') {
