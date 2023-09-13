@@ -16,7 +16,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'cd client/admin && npm run test'
+                sh 'cd client/admin && npm run e2e'
             }
         }
         stage('Deploy') {
