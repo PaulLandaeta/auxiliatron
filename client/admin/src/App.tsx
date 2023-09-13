@@ -1,9 +1,11 @@
 import "./App.css";
-import SubjectCard from "./components/SubjectCard"
+import Component from "./components/TitleCard";
+import Pokedeck from './components/Pokedeck';
 function App() {
-
   return (
-    <SubjectCard/>
+    <>
+      <Component name="Paul Landaeta"/>
+    </>
   );
 }
 
