@@ -7,7 +7,8 @@ exports.up = function(knex) {
         table.increments('id').primary();
         table.string('name').notNullable();
         table.text('description').notNullable();
-        table.integer('semester').notNullable();
+        table.integer('credits').notNullable();
+        table.string('professor').notNullable();
         table.timestamps(true, true);
       });
 };
