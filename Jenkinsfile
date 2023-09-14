@@ -21,9 +21,7 @@ pipeline {
         }
         stage('Test e2e') {
             steps {
-                wrap([$class: 'Xvfb', autoDisplayName: true]) {
-                    sh 'cd client/admin && npm run e2e'
-                }
+               sh 'cd client/admin && npm run e2e'
             }
         }
         stage('Deploy') {
