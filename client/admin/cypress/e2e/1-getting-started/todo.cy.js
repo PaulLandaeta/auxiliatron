@@ -13,7 +13,7 @@
 
 describe('example facebook app', () => {
   beforeEach(() => {  
-    cy.visit('http:locahost:41')
+    cy.visit('https://sistemas.upb.edu/')
   })
 
   it('it is in upb', () => {
